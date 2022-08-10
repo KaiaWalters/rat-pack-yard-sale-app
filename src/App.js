@@ -1,15 +1,15 @@
 import React from 'react';
-import ProductDetails from './ProductDetails';
-import Home from './Home'
+import ProductDetails from './screens/ProductDetails';
+import Home from './screens/Home'
 import {Route, Routes, BrowserRouter} from 'react-router-dom';
 
-function App() {
+function App(props) {
   return (
     <>
-    <BrowserRouter>
+    <BrowserRouter class="container">
     <Routes>
       <Route path="/" element={<Home/>}/>
-      <Route path="/details" element={<ProductDetails/>}/>
+      <Route path="/details/:type" element={<ProductDetails/>}/>
     </Routes>
     </BrowserRouter>
     </>
