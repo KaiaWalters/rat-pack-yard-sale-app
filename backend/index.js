@@ -8,7 +8,7 @@ const MongoClient = mongodb.MongoClient
 const port = process.env.PORT || 8000
 
 MongoClient.connect(
-    'mongodb+srv://rickyBobby:Kathullu19981369@cluster0.2knf4.mongodb.net/yardsale?retryWrites=true&w=majority', 
+    process.env.DB_CONNECTION,
     {
         wtimeoutMS: 2500
     }
