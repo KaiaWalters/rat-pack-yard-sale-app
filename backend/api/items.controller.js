@@ -1,6 +1,4 @@
-import itemsDAO from "../dao/usersDAO.js"
-import express from "express"
-import e from "express"
+import usersDAO from "../dao/usersDAO.js"
 
 export default class ItemsController {
 
@@ -25,7 +23,7 @@ export default class ItemsController {
    
     //actually makes the request WHICH DOES GET FULFILLED
 
-    const { itemsList, totalNumItems } = await itemsDAO.getItems({
+    const { itemsList, totalNumItems } = await usersDAO.getItems({
       filters,
       page,
       itemsPerPage,
@@ -47,7 +45,7 @@ export default class ItemsController {
   static async apiGetItemById(req, res, next) {
     try {
       let id = req.params.id || {}
-      let item = await itemsDAO.getItemByID(id)
+      let item = await usersDAO.getItemByID(id)
       if (!item) {
         res.status(404).json({ error: "Not found" })
         return
@@ -61,7 +59,7 @@ export default class ItemsController {
 
   static async apiGetItemBids(req, res, next) {
     try {
-      let bids = await itemsDAO.getBids()
+      let bids = await usersDAO.getBids()
       res.json(bids)
     } catch (e) {
       console.log(`api, ${e}`)

@@ -1,13 +1,13 @@
-//I dont see the purpose of this file
 let items 
 
-export default class ItemsDAO {
+export default class UsersDAO {
     static async injectDB(conn) {
         if(items) {
             return
         }
 
         try {
+            //populate items
             items = await conn.db("yard-sale").collection("items")
             console.log("item response from db", items)
 
@@ -43,6 +43,7 @@ export default class ItemsDAO {
         let cursor
         
         try {
+            console.log("Items at cursor",items)
             cursor = await items.find(query)
         }
         catch (e) {

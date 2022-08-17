@@ -2,13 +2,15 @@ import app from "./server.js"
 import mongodb from "mongodb"
 import usersDAO from "./dao/usersDAO.js"
 
-const {DB_CONNECTION} = process.env
+const {DB_CONNECTION, PORT} = process.env
 const MongoClient = mongodb.MongoClient
 
-const port = 3001 || 8000
 
-DB_CONNECTION,
+const port = 8000
+
+
 MongoClient.connect(
+    DB_CONNECTION,
     {
         wtimeoutMS: 2500
     }
@@ -19,7 +21,6 @@ MongoClient.connect(
 })
 .then(async client => {
     await usersDAO.injectDB(client)
-    console.log( "connection to db", await usersDAO.injectDB(client))
     app.listen(port, () => {
         console.log(`listening on port ${port}`)
     })

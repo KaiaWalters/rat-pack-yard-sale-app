@@ -9,11 +9,6 @@ router.route("/").get((req,res,next) => {
     itemsCTRL.apiGetItems(req,res)
 
     //middleware function used to move to next function
-    next()
-}) 
-
-router.route("/").get((req,res) => {
-    console.log("I am the next function")
 }) 
 
 export default router 

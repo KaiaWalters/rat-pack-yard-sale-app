@@ -12,7 +12,7 @@ app.use("/api/v1/yard-sale-items", pages) // lists the url route from which peop
 app.use('*', (req,res) => res.status(404).json({error: "error not found"})) // * meanse wild card, if use goes to a random route our server will return 404
 
 app.listen(PORT, function(){    
-    console.log("Express server is running")
+    console.log(`Express server is running ${PORT}`)
 })
 
 export default app
