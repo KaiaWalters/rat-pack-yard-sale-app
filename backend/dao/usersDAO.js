@@ -7,9 +7,8 @@ export default class UsersDAO {
         }
 
         try {
-            //populate items
+            //connect to items collection
             items = await conn.db("yard-sale").collection("items")
-            console.log("item response from db", items)
 
         } catch(e) {
             console.error(
@@ -66,6 +65,18 @@ export default class UsersDAO {
             return { itemsList: [], totalNumItems: 0 }
         }
     } 
+
+    static async postItemPrice( myobj = {}) {
+        try {
+            items.insertOne(myobj, function (err, res) {
+                if (err) throw err;
+                console.log(res)
+              });
+        } 
+        catch (e) {
+            console.log(`Unable to submit new document ${e}`)
+        } 
+    }
 }
 
 

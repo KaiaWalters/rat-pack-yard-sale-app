@@ -41,7 +41,6 @@ export default class ItemsController {
     res.send(response)
   }
 
-
   static async apiGetItemById(req, res, next) {
     try {
       let id = req.params.id || {}
@@ -66,4 +65,22 @@ export default class ItemsController {
       res.status(500).json({ error: e })
     }
   }
+
+  static async apiUpdateItemPrice(req, res, next) {
+    try {
+      let post = await usersDAO.postItemPrice({
+        bid: req.body.name,
+        item: req.body.item,
+        name: req.body.position,
+        email: req.body.level,
+        phone: req.body.phone
+      })
+      console.log("Post was executed")
+
+    } catch (e) {
+      console.log(`Unable to update price of item ${e}`)
+    }
+  }
 }
+  
+   

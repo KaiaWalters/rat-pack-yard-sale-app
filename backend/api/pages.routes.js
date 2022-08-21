@@ -4,14 +4,22 @@ import itemsCTRL from "./items.controller.js"
 const router = express.Router()
 
 router.route("/").get((req,res,next) => {
-    //res.send andd other methods have headers unique to the methods. 
-    // res.send(itemsCTRL.apiGetItems(req,res))
     itemsCTRL.apiGetItems(req,res)
-
-    //middleware function used to move to next function
 }) 
+
+
+//send post with bids from /item/bid 
+//the post should update the bidding price of an item
+
+router.route("/details").get((req,res,next) => {
+    //should get the data from the db first then only run this when the user submits a new bid
+
+    //send the data from the form to this url somehow, run this on form submission 
+    itemsCTRL.apiUpdateItemPrice(req,res)
+    next()
+}) 
+
+//get bids from db 
 
 export default router 
 
-
-//Why is a promised being returned between my router and controller when the response has already been fulfilled. 
