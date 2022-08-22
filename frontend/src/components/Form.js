@@ -2,15 +2,12 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
-
-const {PORT} = process.env
-
 function Form(props) {
     let [form, setForm] = useState({})
     let [error, setError] = useState({})
     let errorDisplay; 
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const setField = (field, value) => {
         setForm({
@@ -72,12 +69,12 @@ function Form(props) {
     
 
     return (
-        <div class="form_container">
+        <div className="form_container">
             <h2>Interested?</h2>
             <span>Submit a bid!</span>
-            <form class="container" action="">
+            <form className="container" action="">
                 {errorDisplay}
-                <input type="text" name='username' placeholder="Username" value={form.username} isInvalid={!!error.username} onChange={(e)=> setField("username", e.target.value)} required/>
+                <input type="text" name='username' placeholder="Username" value={form.username} onChange={(e)=> setField("username", e.target.value)} required/>
                 <input type="text" name='email' placeholder="Email" onChange={(e)=> setField("email", e.target.value)}  required/>
                 <input type="text" name='phone' placeholder="Phone number" onChange={(e)=> setField("phone", e.target.value)}  />
                 <input type="text" name='bid' placeholder="Your bid" onChange={(e)=> setField("bid", e.target.value)} />

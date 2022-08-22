@@ -6,7 +6,7 @@ import {Route, Routes, BrowserRouter} from 'react-router-dom';
 function App(props) {
   return (
     <>
-    <BrowserRouter class="container">
+    <BrowserRouter className="container">
     <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/details/:type" element={<ProductDetails/>}/>

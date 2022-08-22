@@ -9,7 +9,7 @@ function CardContainer(props) {
     <div className="row">
        {
         itemsForSale.map(function(item, index){
-          return <Card item={item}/>
+          return <Card key={index} item={item}/>
         })
       }
     </div>
