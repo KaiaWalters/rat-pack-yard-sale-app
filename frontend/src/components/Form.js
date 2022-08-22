@@ -1,12 +1,16 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
+
+const {PORT} = process.env
 
 function Form(props) {
-  
     let [form, setForm] = useState({})
     let [error, setError] = useState({})
     let errorDisplay; 
+
+    const navigate = useNavigate();
 
     const setField = (field, value) => {
         setForm({
@@ -38,8 +42,9 @@ function Form(props) {
          errorDisplay =  <div><span>{error}</span></div>
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+    async function handleSubmit(e) {
+        e.preventDefault();
+        
         const formError = validateForm()
         if(Object.keys(formError).length > 0) {
             setError(formError)
@@ -47,7 +52,22 @@ function Form(props) {
         }else {
             console.log(form)
         }
-    }
+        const newBid = { ...form, ...{item:`${props.product}`} };
+      
+        await fetch('http://localhost:8001/api/v1/yard-sale-items/postBid', {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newBid),
+        })
+        .catch(error => {
+          window.alert(error);
+          return;
+        });
+        setForm({ username: "", email: "", phone: "", bid: ""});
+        // navigate("/"); //should nav to success screen
+      }
 
     
 
@@ -57,10 +77,10 @@ function Form(props) {
             <span>Submit a bid!</span>
             <form class="container" action="">
                 {errorDisplay}
-                <input type="text" name='username' placeHolder="Username" value={form.username} isInvalid={!!error.username} onChange={(e)=> setField("username", e.target.value)} required/>
-                <input type="text" name='email' placeHolder="Email" onChange={(e)=> setField("email", e.target.value)}  required/>
-                <input type="text" name='phone' placeHolder="Phone number" onChange={(e)=> setField("phone", e.target.value)}  />
-                <input type="text" name='bid' placeHolder="Your bid" onChange={(e)=> setField("bid", e.target.value)} />
+                <input type="text" name='username' placeholder="Username" value={form.username} isInvalid={!!error.username} onChange={(e)=> setField("username", e.target.value)} required/>
+                <input type="text" name='email' placeholder="Email" onChange={(e)=> setField("email", e.target.value)}  required/>
+                <input type="text" name='phone' placeholder="Phone number" onChange={(e)=> setField("phone", e.target.value)}  />
+                <input type="text" name='bid' placeholder="Your bid" onChange={(e)=> setField("bid", e.target.value)} />
                 <button type="submit" onClick={handleSubmit}>Submit your bid</button>
             </form>
         </div>

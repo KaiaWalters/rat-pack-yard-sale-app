@@ -6,19 +6,13 @@ const router = express.Router()
 router.route("/").get((req,res,next) => {
     itemsCTRL.apiGetItems(req,res)
 }) 
-
-
 //send post with bids from /item/bid 
 //the post should update the bidding price of an item
 
-router.route("/details").get((req,res,next) => {
-    //should get the data from the db first then only run this when the user submits a new bid
-
-    //send the data from the form to this url somehow, run this on form submission 
+router.route("/postBid").post((req,res,next) => {
+    console.log("request",res)
     itemsCTRL.apiUpdateItemPrice(req,res)
-    next()
 }) 
-
 //get bids from db 
 
 export default router 

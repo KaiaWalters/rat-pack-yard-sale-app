@@ -4,7 +4,7 @@ import Card from './Card'
 
 function CardContainer(props) {
   let itemsForSale = props.items
-  console.log(itemsForSale)
+
   return (
     <div className="row">
        {

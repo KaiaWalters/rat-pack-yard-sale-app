@@ -21,7 +21,7 @@ function ProductDetails(props) {
                 <h3>{state.name}</h3>
                 <span>{state.description}</span>
                 <span>Current bid price: {state.price}</span>
-                <Form/>
+                <Form product={state.name}/>
             </div>
         </div>
     );

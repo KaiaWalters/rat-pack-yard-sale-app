@@ -69,13 +69,12 @@ export default class ItemsController {
   static async apiUpdateItemPrice(req, res, next) {
     try {
       let post = await usersDAO.postItemPrice({
-        bid: req.body.name,
+        bid: req.body.bid,
         item: req.body.item,
-        name: req.body.position,
-        email: req.body.level,
+        username: req.body.username,
+        email: req.body.email,
         phone: req.body.phone
       })
-      console.log("Post was executed")
 
     } catch (e) {
       console.log(`Unable to update price of item ${e}`)

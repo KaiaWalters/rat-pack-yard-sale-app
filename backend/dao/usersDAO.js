@@ -70,7 +70,9 @@ export default class UsersDAO {
         try {
             items.insertOne(myobj, function (err, res) {
                 if (err) throw err;
-                console.log(res)
+                console.log("Response",res)
+                console.log("Object", myobj)
+
               });
         } 
         catch (e) {
