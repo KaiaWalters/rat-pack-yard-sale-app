@@ -2,6 +2,9 @@ import React from 'react';
 import ProductDetails from './screens/ProductDetails';
 import Home from './screens/Home'
 import {Route, Routes, BrowserRouter} from 'react-router-dom';
+import "./css/App.css"
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App(props) {
   return (

@@ -1,4 +1,35 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+* {
+    color:#043204;
+}
+
 .container {
     display:flex;
     justify-content: center;
+    padding:16px;
+    padding-top:36px;
+    background-color: white;
 }
+
+a { 
+    color: inherit !important; 
+} 
+
+@font-face {
+    font-family: 'Yellowtail';
+    src: url('./fonts/Yellowtail/Yellowtail-Regular.ttf')
+}
+
+h1 { font-family: 'Yellowtail'; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } 
+
+/* Go back and find a way to override bootstrap stylings */
+h3 {font-family: 'Open Sans', sans-serif; font-size: 20px !important; font-style: normal; font-variant: normal; font-weight: bold !important; line-height: 20px; }
+
+
+p {font-family: 'Open Sans', sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; }
+
+blockquote { font-family: Yellowtail; font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } 
+
+pre { font-family: Yellowtail; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }

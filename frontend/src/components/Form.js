@@ -1,8 +1,10 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form'; 
 
-function Form(props) {
+function FormComponent(props) {
     let [form, setForm] = useState({})
     let [error, setError] = useState({})
     let errorDisplay; 
@@ -66,22 +68,47 @@ function Form(props) {
         // navigate("/"); //should nav to success screen
       }
 
-    
-
     return (
         <div className="form_container">
-            <h2>Interested?</h2>
-            <span>Submit a bid!</span>
-            <form className="container" action="">
-                {errorDisplay}
-                <input type="text" name='username' placeholder="Username" value={form.username} onChange={(e)=> setField("username", e.target.value)} required/>
-                <input type="text" name='email' placeholder="Email" onChange={(e)=> setField("email", e.target.value)}  required/>
-                <input type="text" name='phone' placeholder="Phone number" onChange={(e)=> setField("phone", e.target.value)}  />
-                <input type="text" name='bid' placeholder="Your bid" onChange={(e)=> setField("bid", e.target.value)} />
-                <button type="submit" onClick={handleSubmit}>Submit your bid</button>
-            </form>
+            <h2>Submit an offer!</h2>
+            <Form>
+            {errorDisplay}
+            <Form.Group className="mb-3" controlId="formBasicUsername">
+                <Form.Label>Username</Form.Label>
+                <Form.Control type="username" placeholder="Username" onChange={(e)=> setField("username", e.target.value)}/>
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control type="email" placeholder="Enter email" onChange={(e)=> setField("email", e.target.value)}/>
+                <Form.Text className="text-muted">
+                We'll never share your email with anyone else.
+                </Form.Text>
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicPhoneNumber">
+                <Form.Label>Phone Number</Form.Label>
+                <Form.Control type="phone" placeholder="Enter phone number" onChange={(e)=> setField("phone", e.target.value)}/>
+                <Form.Text className="text-muted">
+                You're number may be used to notify you. We'll never share your number with anyone else.
+                </Form.Text>
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicBid">
+                <Form.Label>Phone Number</Form.Label>
+                <Form.Control type="bid" placeholder="Enter Bid" onChange={(e)=> setField("bid", e.target.value)}/>
+                <Form.Text className="text-muted">
+                    How much will you offer for this item?
+                </Form.Text>
+            </Form.Group>
+
+            <Button variant="primary" type="submit" onClick={handleSubmit}>
+                Submit
+            </Button>
+
+            </Form>
         </div>
     );  
   };
 
-  export default Form; 
+  export default FormComponent; 

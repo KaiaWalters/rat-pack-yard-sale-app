@@ -8,7 +8,7 @@ export default [
         {
             "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.FIiUwtyzVg1_jxomWZdtEQHaHa%26pid%3DApi&f=1",
             "name": "Covered Litter Box", 
-            "description": "some-description", 
+            "description": "Java chicory, black doppio and roast cream mocha turkish strong. Blue mountain doppio black, chicory, sugar medium, single shot a wings blue mountain turkish. Viennese et, cinnamon, turkish lungo qui cappuccino kopi-luwak. Black, dripper, to go medium espresso lungo in.", 
             "asking_price": "30"
         },
         {

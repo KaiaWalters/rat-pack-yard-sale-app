@@ -2,15 +2,21 @@
     display: flex;
     flex-direction: column;
     width:20rem;
-    align-items: center;
-    border: 2px solid grey; 
+    align-items: center; 
     border-radius: 5px;
-    padding: 10px; 
-    margin-top: 10px;
-    margin-left:5px;
+    padding: 16px; 
+    margin-bottom: 16px;
     text-decoration: none;
-    background-color: #e9fcf8;
+    border: 1px solid grey;
+    background-color: white;
 }
+
+img {
+    width: 200px;
+    height: 150px;
+    margin-bottom: 10px;
+}
+
 a, a:hover, a:focus, a:active {
     color: inherit;
     outline: none;
@@ -21,11 +27,20 @@ a, a:hover, a:focus, a:active {
     width:60%;
 }
 
-img {
-    width: 200px;
-    height: 150px
+.product-info span {
+    background-color: rgb(78, 178, 108); 
+    padding: 10px;
+    max-width: 20px;
+    border-radius: 5px;
 }
-h1 {
-   font-weight: 500; 
-   font-size: large;
+
+.truncate {
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
+
+
+
