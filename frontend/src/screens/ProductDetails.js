@@ -5,8 +5,7 @@ import {useLocation} from 'react-router-dom';
 
 function ProductDetails(props) {
     const state = useLocation().state;
-
-
+    
     return (
         <div className="product_container">
             <h1>Product Details</h1>
